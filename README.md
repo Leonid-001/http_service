@@ -1,6 +1,8 @@
 
 # My First Go Project  
 
+This solution is feature complete. However, it should undergo Load and Stability testing before production deployments.  
+
 ## Endpoints Description  
 
 ### Hash Password  
@@ -62,14 +64,13 @@ go test
 
 ## Obvious Improvements  
 
-1. Real configuration options
+1. Configuration options
 2. Better error handling
-3. Real logging solution
-4. Designed as a single process. This solution doesn't support scaling out.
+3. Better logging solution
+4. This solution doesn't support scaling out.
 
 ## Runtime Limitations  
 
-1. The total number of POST requests is limited to 18446744073709551615
-2. Traffic spikes might cause issues
-3. Designed as a single process. This solution doesn't support scaling out.
-
+1. The total number of hash password requests is limited to 18446744073709551615
+3. Traffic spikes might cause issues
+4. This solution doesn't support scaling out.
