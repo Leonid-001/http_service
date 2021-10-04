@@ -69,7 +69,7 @@ func HashPassword(w http.ResponseWriter, r *http.Request) {
 		}()
 		fmt.Fprint(w, requestId)
 	} else {
-		log.Println("HandlePasswordRequest undefined behavior for the HTTP method", r.Method)
+		log.Println("HashPassword undefined behavior for the HTTP method", r.Method)
 	}
 }
 
@@ -89,7 +89,7 @@ func GetHashedPassword(w http.ResponseWriter, r *http.Request) {
 			log.Println("Error processing GET request", input, "is not an integer.")
 		}
 	} else {
-		log.Println("HandlePasswordResponse undefined behavior for the HTTP method", r.Method)
+		log.Println("GetHashedPassword undefined behavior for the HTTP method", r.Method)
 	}
 }
 
@@ -104,7 +104,7 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 		jsonString := fmt.Sprintf("{“total”: %s, “average”: %s}", currentTotal, currentAverage)
 		w.Write([]byte(jsonString))
 	} else {
-		log.Println("HandleStats undefined behavior for the HTTP method", r.Method)
+		log.Println("Stats undefined behavior for the HTTP method", r.Method)
 	}
 }
 
@@ -118,7 +118,7 @@ func Shutdown(w http.ResponseWriter, r *http.Request) {
 			myServer.Shutdown(context.Background())
 		}()
 	} else {
-		log.Println("HandleShutdown undefined behavior for the HTTP method", r.Method)
+		log.Println("Shutdown undefined behavior for the HTTP method", r.Method)
 	}
 }
 
