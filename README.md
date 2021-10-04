@@ -3,7 +3,7 @@
 
 This solution is feature complete. However, it should undergo Load and Stability testing before production deployments.  
 
-## Endpoints Description  
+## Endpoints    
 
 ### Hash Password  
 
@@ -21,12 +21,12 @@ HTTP GET request to http://localhost:8080/hash/###
 Returns the hashed password for the request ### if available.
 
 ```shell
-curl --data “password=angryMonkey” http://localhost:8080/hash/42  
+curl http://localhost:8080/hash/42  
 ZEHhWB65gUlzdVwtDQArEyx+KVLzp/aTaRaPlBzYRIFj6vjFdqEb0Q5B8zVKCZ0vKbZPZklJz0Fd7su2A+gf7Q==
 ``` 
 
 ```shell
-curl --data “password=angryMonkey” http://localhost:8080/hash/333  
+curl http://localhost:8080/hash/333  
 ``` 
 
 ### Get statistics  
@@ -50,27 +50,30 @@ curl http://localhost:8080/shutdown
 
 ## Run and Test Instructions  
 
-Run instructions
+Run the HTTP service:
 
 ```shell
 go run .
 ```
 
-Test instructions
+Test the HTTP service:
 
 ```shell
 go test
 ```
 
-## Obvious Improvements  
+## Obvious Project Improvements  
 
-1. Configuration options
-2. Better error handling
-3. Better logging solution
-4. This solution doesn't support scaling out.
+1. Implement configuration options
+1. Remove the dependency on the total request processing time in the running average calculations
+1. Sanitize the API inputs
+1. Implement better error handling
+1. Implement better logging solution
+1. This solution doesn't support scaling out.
 
 ## Runtime Limitations  
 
 1. The total number of hash password requests is limited to 18446744073709551615
-3. Traffic spikes might cause issues
-4. This solution doesn't support scaling out.
+1. The total request processing time is limited to 9223372036854775807 
+1. Traffic spikes might cause issues
+1. This solution doesn't support scaling out.
